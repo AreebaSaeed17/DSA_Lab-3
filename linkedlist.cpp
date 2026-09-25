@@ -35,20 +35,21 @@ class LinkedList{
             tail = newNode;
         }
 
-        std::cout<<"\nA node has been created with the data: \n";
-        std::cout<<tail->data;
+                // check if want to keep
+        // std::cout<<"\nA node has been created with the data: \n";
+        // std::cout<<tail->data;
     }
 
     // function to insert a node at a specific position
     void insertNode(){
 
         int data, pos;
-
-        std::cout<<"Currently there are "<<checkNumberofNodes<<" nodes in the linkedlist.\n";
-        std::cout<<"At what position do you wish to add a new node?\n Keep the position within range for proper creation.\n";
+        int num_of_nodes = checkNumberofNodes();
+        std::cout<<"\nCurrently there are " << num_of_nodes <<" nodes in the linkedlist.\n";
+        std::cout<<"\nAt what position do you wish to add a new node?\nKeep the position within range for proper creation.\n";
         std::cin>>pos;
 
-        std::cout<<"What value node do you wish to create? ";
+        std::cout<<"What value node do you wish to create? \n";
         std::cin>>data;
 
         node *newNode = new node(data);     // creating node with value user gave
@@ -65,11 +66,8 @@ class LinkedList{
         newNode->next = temp_ptr;
         temp_ptr = newNode;     // connect the link from behind
 
-            
-        
-
         std::cout<<"\nA node has been created with the data: \n";
-        std::cout<<tail->data;
+        std::cout<<temp_ptr->data;
     }
 
     int checkNumberofNodes(){
@@ -81,14 +79,7 @@ class LinkedList{
         }
         return count;
     }
-    /*void AddNode_LL(node*head, int pos, int data){
-        // first check if we that many nodes are even present after which we are adding new node
-        if(pos >= checkNumberofNodes(head)){
-            CreateLL(data);
-
-        }
-    }*/
-
+    
     // WORKS
     void DisplayLL(){
 
@@ -115,9 +106,12 @@ int main(){
     list->CreateLL(30);
 
     // displaying the linkedlist
-    list -> DisplayLL();
+    //list -> DisplayLL();
 
-    std::cout<< "The number of nodes in teh current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
+    list ->insertNode();
+
+     //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
+
 
 
 }
