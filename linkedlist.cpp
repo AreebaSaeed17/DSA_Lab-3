@@ -34,6 +34,8 @@ class LinkedList{
             tail = newNode;
         }
 
+        std::cout<<"A node has been created with the data: ";
+        std::cout<<tail->data;
     }
 
 
