@@ -15,10 +15,8 @@ class LinkedList{
         }
     };
 
-    // creating the head and tail ptrs
+    // creating the head ptr
     node * head = nullptr;
-    node * tail = nullptr;
-
 
     // function to create the initial linkedlist
     void InsertNode_atHead(int data){
@@ -62,7 +60,7 @@ class LinkedList{
         temp->next = newNode;
 
         std::cout<<"\nA node has been created with the data: ";
-        std::cout<<temp->data;
+        std::cout<<newNode->data;
 
     }
 
@@ -109,8 +107,6 @@ class LinkedList{
         delete nodeToDelete;
         }
 
-    }
-
     // function to check number of nodes in the list
     int checkNumberofNodes(){
         node* traversal = head;
@@ -147,20 +143,22 @@ int main(){
     list->InsertNode_atHead(20);
     list->InsertNode_atHead(30);
 
-    std::cout<<"\nChoose one of the following operations to perform: \n";
+
+    do {
+    
+        std::cout<<"\nChoose one of the following operations to perform: \n";
   
     std::cout<<"1. Insertion of A Node at position number 3\n";
     std::cout<<"2. Deletion of A Node\n";
     std::cout<<"3. Check number of nodes\n";
     std::cout<<"4. Display the linkedlist\n";
-    std::cout<<"5. Quit the program (Enter -1)\n";
+    std::cout<<"-1. Quit the program (Enter -1)\n";
 
 
     std::cout<<"\nEnter your choice: ";
     int choice;
     std::cin>>choice;
 
-    do {
 
         switch (choice){
     
