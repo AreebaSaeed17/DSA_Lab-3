@@ -5,11 +5,10 @@ class LinkedList{
     public:
     // defining struct for node of linkedlist
     struct node {
-        private:
+
         int data;
         node *next = nullptr;
-
-        public:
+    
         node(int data){
             this-> data = data; 
         }
@@ -19,12 +18,20 @@ class LinkedList{
     node * head = nullptr;
     node * tail = nullptr;
 
-    // create a new node
-    node *n1 = new node(1);
-    node *n2 = new node(2);
-    node *n3 = new node(3);
+   
+    // function to create a new node
+    void CreateNode(int data){
+    
+        node *newNode = new node(data);
 
-    if(head==nullptr){
+        if(head==nullptr){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            tail->next = newNode;
+            tail = newNode;
+        }
 
     }
 
