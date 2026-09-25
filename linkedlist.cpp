@@ -1,10 +1,10 @@
 #include<iostream>
-using namespace std;
 
 class LinkedList{
-    public:
 
+    public:
     // defining struct for node of linkedlist
+    // making it public to access these throughout the program
     struct node {
 
         int data;
@@ -20,7 +20,7 @@ class LinkedList{
     node * tail = nullptr;
 
 
-                    // function to create a new node
+    // function to create the initial linkedlist
     void CreateLL(int data){
     
         node *newNode = new node(data);
@@ -34,11 +34,8 @@ class LinkedList{
             tail->next = newNode;
             tail = newNode;
         }
-
-                // check if want to keep
-        // std::cout<<"\nA node has been created with the data: \n";
-        // std::cout<<tail->data;
     }
+
 
     // function to insert a node at a specific position
     void insertNode(){
@@ -70,6 +67,31 @@ class LinkedList{
         std::cout<<temp_ptr->data;
     }
 
+    void DeleteNode(){
+        int pos;
+
+        int num_of_nodes = checkNumberofNodes();
+        std::cout<<"\nCurrently there are " << num_of_nodes <<" nodes in the linkedlist.\n";
+        std::cout<<"\nWhich node do you want to delete?\nKeep the position within range for proper deletion.\n";
+        std::cin>>pos;
+
+        node *temp = head;
+    
+        // reach one node behind the position at which i want to delete the node
+        for (int i = 0; i<(pos-1); i++){
+            temp = temp ->next;             // keep moving the ptr forward
+        }
+        
+        temp ->next = temp->next->next;      // make it point to the next to next node
+
+        temp = temp->next;                  // bring temp to the actual node i want to delete
+        delete temp;                        // delete that node 
+
+
+
+    }
+
+    // function to check number of nodes in the list
     int checkNumberofNodes(){
         node* traversal = head;
         int count = 0;
@@ -80,7 +102,7 @@ class LinkedList{
         return count;
     }
     
-    // WORKS
+    // print out the linkedlist
     void DisplayLL(){
 
         node * temp = head;
@@ -92,6 +114,7 @@ class LinkedList{
     }
 
 };
+
 
 int main(){
 
@@ -106,8 +129,9 @@ int main(){
     list->CreateLL(30);
 
     // displaying the linkedlist
-    //list -> DisplayLL();
+    list -> DisplayLL();
 
+    // inserting nodes
     list ->insertNode();
 
      //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
