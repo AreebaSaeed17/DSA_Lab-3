@@ -126,20 +126,47 @@ int main(){
     list->CreateLL(20);
     list->CreateLL(30);
 
-    std::cout<<"\nChoose one of the following to implement: \n";
-    std::cout<<"1. Insertion of A Node\n";
+    std::cout<<"\nChoose one of the following operations to perform: \n";
+    std::cout<<"1. Insertion of A Node at any position\n";
     std::cout<<"2. Deletion of A Node\n";
     std::cout<<"3. Check number of nodes\n";
     std::cout<<"4. Display the linkedlist\n";
+    std::cout<<"5. Quit the program (Enter -1)\n";
 
+
+    std::cout<<"\nEnter your choice: ";
+    int choice;
+    std::cin>>choice;
+
+    switch (choice){
+        case 1:
+        list->insertNode();
+        break;
+
+        case 2:
+        list->DeleteNode();
+
+        case 3:
+        list->checkNumberofNodes();
+
+        case 4:
+        list->DisplayLL();
+        break;
+
+        case -1:
+        std::cout<<"______Quitting the program______\n";
+
+        default:
+        std::cout<<"You have entered an invalid number.\nCouldn't be processed...\n";
+    }
 
 
 
     // displaying the linkedlist
-    list -> DisplayLL();
+    //list -> DisplayLL();
 
     // inserting nodes
-    list ->insertNode();
+    //list ->insertNode();
 
      
     //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
