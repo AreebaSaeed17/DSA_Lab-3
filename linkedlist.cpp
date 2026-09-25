@@ -21,18 +21,19 @@ class LinkedList{
 
 
     // function to create the initial linkedlist
-    void CreateLL(int data){
+    void InsertNode_atHead(int data){
     
         node *newNode = new node(data);
 
         if(head == nullptr){
             head = newNode;
-            tail = newNode;
         }
-        // if the node being added isnt the 1st node then create links
+        
+        // if the linkedlist already exists, add the new node such that it replaces the head
         else{
-            tail->next = newNode;
-            tail = newNode;
+            newNode-> next = head;      // whatever head was pointing to becomes 2nd to this new node
+                                        // so we store that in its *nexts
+            head = newNode;
         }
     }
 
@@ -121,10 +122,10 @@ int main(){
 
     // I am creating a linkedlist first by calling the function
     // this linkedlist has 4 nodes
-    list->CreateLL(0);
-    list->CreateLL(10);
-    list->CreateLL(20);
-    list->CreateLL(30);
+    list->InsertNode_atHead(0);
+    list->InsertNode_atHead(10);
+    list->InsertNode_atHead(20);
+    list->InsertNode_atHead(30);
 
     std::cout<<"\nChoose one of the following operations to perform: \n";
     std::cout<<"1. Insertion of A Node at any position\n";

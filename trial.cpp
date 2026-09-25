@@ -18,22 +18,7 @@ class LinkedList{
     // creating the head ptr
     node * head = nullptr;
     
-    // function to create the initial linkedlist
-    void InsertNode_atHead(int data){
-    
-        node *newNode = new node(data);
-
-        if(head == nullptr){
-            head = newNode;
-        }
-        
-        // if the linkedlist already exists, add the new node such that it replaces the head
-        else{
-            newNode-> next = head;      // whatever head was pointing to becomes 2nd to this new node
-                                        // so we store that in its *nexts
-            head = newNode;
-        }
-    }
+   
 
 
     // function to insert a node at a specific position
