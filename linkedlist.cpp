@@ -46,7 +46,7 @@ class LinkedList{
         }
 
         int data;
-        std::cout<<"What value node do you wish to create? \n";
+        std::cout<<"\nWhat value node do you wish to create? \n";
         std::cin>>data;
 
 
@@ -61,31 +61,54 @@ class LinkedList{
         newNode->next = temp->next;
         temp->next = newNode;
 
-        std::cout<<"\nA node has been created with the data: \n";
+        std::cout<<"\nA node has been created with the data: ";
         std::cout<<temp->data;
 
     }
 
     void DeleteNode(){
-        int pos;
 
+        if (head == nullptr){
+            std::cout<<"There is nothing to delete.\n";
+            return;
+        }
+
+        int pos;
         int num_of_nodes = checkNumberofNodes();
         std::cout<<"\nCurrently there are " << num_of_nodes <<" nodes in the linkedlist.\n";
         std::cout<<"\nWhich node do you want to delete?\nKeep the position within range for proper deletion.\n";
         std::cin>>pos;
 
-        node *temp = head;
-    
-        // reach one node behind the position at which i want to delete the node
-        for (int i = 1; i<(pos-1); i++){
-            temp = temp ->next;             // keep moving the ptr forward
+        // check if user entered valid position
+        if (pos < 1 || pos > num_of_nodes){
+        std::cout << "Invalid position.\n";
+        return;
         }
-        
-        temp ->next = temp->next->next;      // make it point to the next to next node
 
-        temp = temp->next;                  // bring temp to the actual node i want to delete
-        std::cout<<"Deleting the node at position " << pos << " storing data: " << temp->data <<" \n";
-        delete temp;                        // delete that node 
+        // code for deleting head 
+        if (pos == 1){
+        node *nodeToDelete = head;
+        std::cout << "Deleting the head node storing data: " << nodeToDelete->data << "\n";
+        head =  head->next;
+        delete nodeToDelete; 
+        return;
+        }
+
+        // general code to delete node at any position
+        node *temp = head;
+        // stopping one node before the node user wants to delete
+        for (int i = 1; i < (pos - 1); i++){
+        temp = temp->next;
+        }
+
+        // save that node
+        node* nodeToDelete = temp->next;
+
+        std::cout << "Deleting the node at position " << pos << "*storing data: "<< nodeToDelete->data << "\n";
+        temp->next = nodeToDelete->next;
+        delete nodeToDelete;
+        }
+
     }
 
     // function to check number of nodes in the list
@@ -111,7 +134,6 @@ class LinkedList{
     }
 
 };
-
 
 int main(){
 
@@ -151,7 +173,7 @@ int main(){
         break;
 
         case 3:
-        list->checkNumberofNodes();
+        std::cout<<"\nThe number of nodes in the linked list are "<< list->checkNumberofNodes()<<"\n";
         break;
 
         case 4:
@@ -168,16 +190,6 @@ int main(){
     } 
     while(choice != -1);
    
-
-    // displaying the linkedlist
-    //list -> DisplayLL();
-
-    // inserting nodes
-    //list ->insertNode();
-
-     
-    //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
-
 
 
 }
