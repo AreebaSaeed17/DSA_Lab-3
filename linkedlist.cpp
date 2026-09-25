@@ -3,6 +3,7 @@ using namespace std;
 
 class LinkedList{
     public:
+
     // defining struct for node of linkedlist
     struct node {
 
@@ -18,8 +19,8 @@ class LinkedList{
     node * head = nullptr;
     node * tail = nullptr;
 
-    // WORKS
-    // function to create a new node
+
+                    // function to create a new node
     void CreateLL(int data){
     
         node *newNode = new node(data);
@@ -38,8 +39,18 @@ class LinkedList{
         std::cout<<tail->data;
     }
 
-     void insertNode(int data, int pos){
-    
+    // function to insert a node at a specific position
+    void insertNode(){
+
+        int data, pos;
+        
+        std::cout<<"Currently there are "<<checkNumberofNodes<<" nodes in the linkedlist.\n";
+        std::cout<<"At what position do you wish to add a new node?\n Keep the position within range for proper creation.\n";
+        std::cin>>pos;
+
+        std::cout<<"What value node do you wish to create? ";
+        std::cin>>data;
+
         node *newNode = new node(data);
 
         if(head == nullptr){
