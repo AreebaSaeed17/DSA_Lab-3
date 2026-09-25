@@ -85,10 +85,8 @@ class LinkedList{
         temp ->next = temp->next->next;      // make it point to the next to next node
 
         temp = temp->next;                  // bring temp to the actual node i want to delete
+        std::cout<<"Deleting the node at position " << pos << " storing data: " << temp->data <<" \n";
         delete temp;                        // delete that node 
-
-
-
     }
 
     // function to check number of nodes in the list
