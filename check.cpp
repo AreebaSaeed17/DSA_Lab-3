@@ -38,24 +38,6 @@ class LinkedList{
         std::cout<<tail->data;
     }
 
-     void insertNode(int data, int pos){
-    
-        node *newNode = new node(data);
-
-        if(head == nullptr){
-            head = newNode;
-            tail = newNode;
-        }
-       
-        else{
-            tail->next = newNode;
-            tail = newNode;
-        }
-
-        std::cout<<"\nA node has been created with the data: \n";
-        std::cout<<tail->data;
-    }
-
     int checkNumberofNodes(node* head){
         node* traversal = head;
         int count = 0;
@@ -69,11 +51,11 @@ class LinkedList{
         // first check if we that many nodes are even present after which we are adding new node
         if(pos >= checkNumberofNodes(head)){
             CreateLL(data);
-
+            
         }
     }
 
-    void DisplayLL(){
+    void DisplayLL(node*head){
 
         node * temp = head;
         std::cout<< "\nThe linked list is: \n";
@@ -90,13 +72,8 @@ int main(){
     // creating an object for the linkedlist class
     LinkedList *list = new LinkedList();
 
-    // creating a linkedlist with 2 nodes first
-    for (int i=1; i<3; i++){
-    std::cout<<"\nWhat value do you want to give to the node # "<<i<<" \n";
-    int val;
-    std::cin>>val;
-    list->CreateLL(val);
-    }
+    // create a LL
+    cree
 
     // displaying the linkedlist
     list -> DisplayLL();
