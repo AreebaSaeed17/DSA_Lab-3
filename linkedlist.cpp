@@ -126,13 +126,23 @@ int main(){
     list->CreateLL(20);
     list->CreateLL(30);
 
+    std::cout<<"\nChoose one of the following to implement: \n";
+    std::cout<<"1. Insertion of A Node\n";
+    std::cout<<"2. Deletion of A Node\n";
+    std::cout<<"3. Check number of nodes\n";
+    std::cout<<"4. Display the linkedlist\n";
+
+
+
+
     // displaying the linkedlist
     list -> DisplayLL();
 
     // inserting nodes
     list ->insertNode();
 
-     //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
+     
+    //std::cout<< "The number of nodes in the current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
 
 
 
