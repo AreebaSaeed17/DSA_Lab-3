@@ -43,7 +43,7 @@ class LinkedList{
     void insertNode(){
 
         int data, pos;
-        
+
         std::cout<<"Currently there are "<<checkNumberofNodes<<" nodes in the linkedlist.\n";
         std::cout<<"At what position do you wish to add a new node?\n Keep the position within range for proper creation.\n";
         std::cin>>pos;
@@ -51,17 +51,22 @@ class LinkedList{
         std::cout<<"What value node do you wish to create? ";
         std::cin>>data;
 
-        node *newNode = new node(data);
-
-        if(head == nullptr){
-            head = newNode;
-            tail = newNode;
-        }
+        node *newNode = new node(data);     // creating node with value user gave
        
-        else{
-            tail->next = newNode;
-            tail = newNode;
+        node * temp_ptr = head;
+        
+        // run a loop and stop at the node behind the position we have to insert
+        for (int i = 0; i<(pos-1); i++){
+            temp_ptr = temp_ptr ->next;             // keep moving the ptr forward
         }
+        
+        // Now insert that node we just made
+        // link the node with its next node
+        newNode->next = temp_ptr;
+        temp_ptr = newNode;     // connect the link from behind
+
+            
+        
 
         std::cout<<"\nA node has been created with the data: \n";
         std::cout<<tail->data;
