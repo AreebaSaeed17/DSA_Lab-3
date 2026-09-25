@@ -54,7 +54,7 @@ class LinkedList{
         node * temp_ptr = head;
         
         // run a loop and stop at the node behind the position we have to insert
-        for (int i = 0; i<(pos-1); i++){
+        for (int i = 1; i<(pos-1); i++){
             temp_ptr = temp_ptr ->next;             // keep moving the ptr forward
         }
         
@@ -78,7 +78,7 @@ class LinkedList{
         node *temp = head;
     
         // reach one node behind the position at which i want to delete the node
-        for (int i = 0; i<(pos-1); i++){
+        for (int i = 1; i<(pos-1); i++){
             temp = temp ->next;             // keep moving the ptr forward
         }
         
@@ -138,7 +138,9 @@ int main(){
     int choice;
     std::cin>>choice;
 
-    switch (choice){
+    do {
+
+         switch (choice){
         case 1:
         list->insertNode();
         break;
@@ -155,12 +157,14 @@ int main(){
 
         case -1:
         std::cout<<"______Quitting the program______\n";
+        break;
 
         default:
         std::cout<<"You have entered an invalid number.\nCouldn't be processed...\n";
-    }
-
-
+        }
+    } 
+    while(choice != -1);
+   
 
     // displaying the linkedlist
     //list -> DisplayLL();
