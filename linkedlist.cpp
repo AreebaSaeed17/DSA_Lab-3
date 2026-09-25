@@ -18,7 +18,7 @@ class LinkedList{
     node * head = nullptr;
     node * tail = nullptr;
 
-   
+    // WORKS
     // function to create a new node
     void CreateLL(int data){
     
@@ -56,7 +56,7 @@ class LinkedList{
         std::cout<<tail->data;
     }
 
-    int checkNumberofNodes(node* head){
+    int checkNumberofNodes(){
         node* traversal = head;
         int count = 0;
         while(traversal != nullptr){
@@ -65,14 +65,15 @@ class LinkedList{
         }
         return count;
     }
-    void AddNode_LL(node*head, int pos, int data){
+    /*void AddNode_LL(node*head, int pos, int data){
         // first check if we that many nodes are even present after which we are adding new node
         if(pos >= checkNumberofNodes(head)){
             CreateLL(data);
 
         }
-    }
+    }*/
 
+    // WORKS
     void DisplayLL(){
 
         node * temp = head;
@@ -90,17 +91,17 @@ int main(){
     // creating an object for the linkedlist class
     LinkedList *list = new LinkedList();
 
-    // creating a linkedlist with 2 nodes first
-    for (int i=1; i<3; i++){
-    std::cout<<"\nWhat value do you want to give to the node # "<<i<<" \n";
-    int val;
-    std::cin>>val;
-    list->CreateLL(val);
-    }
+    // I am creating a linkedlist first by calling the function
+    // this linkedlist has 4 nodes
+    list->CreateLL(0);
+    list->CreateLL(10);
+    list->CreateLL(20);
+    list->CreateLL(30);
 
     // displaying the linkedlist
     list -> DisplayLL();
 
+    std::cout<< "The number of nodes in teh current linkedlist are "<< list -> checkNumberofNodes() << std::endl;
 
 
 }
