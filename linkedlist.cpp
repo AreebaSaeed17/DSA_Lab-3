@@ -38,6 +38,14 @@ class LinkedList{
         std::cout<<tail->data;
     }
 
+    void DisplayLL(){
+
+        node * temp = head;
+        std::cout<< "\nThe linked list is: \n";
+        while(temp!=nullptr){
+            std::cout<< temp->data << " ";
+        }
+    }
 
 };
 
@@ -45,8 +53,12 @@ int main(){
 
     // creating an object for the linkedlist class
     LinkedList *list = new LinkedList();
+
+    // creating a node
     std::cout<<"What value do you want to give to the node? \n";
     int val;
     std::cin>>val;
     list->CreateNode(val);
+
+
 }
