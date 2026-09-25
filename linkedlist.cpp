@@ -144,9 +144,10 @@ int main(){
     list->InsertNode_atHead(30);
 
 
+    int choice;
     do {
     
-        std::cout<<"\nChoose one of the following operations to perform: \n";
+    std::cout<<"\nChoose one of the following operations to perform: \n";
   
     std::cout<<"1. Insertion of A Node at position number 3\n";
     std::cout<<"2. Deletion of A Node\n";
@@ -156,7 +157,6 @@ int main(){
 
 
     std::cout<<"\nEnter your choice: ";
-    int choice;
     std::cin>>choice;
 
 
