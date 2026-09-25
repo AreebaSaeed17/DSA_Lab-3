@@ -24,10 +24,11 @@ class LinkedList{
     
         node *newNode = new node(data);
 
-        if(head==nullptr){
+        if(head == nullptr){
             head = newNode;
             tail = newNode;
         }
+        // if the node being added isnt the 1st node then create links
         else{
             tail->next = newNode;
             tail = newNode;
@@ -36,5 +37,14 @@ class LinkedList{
     }
 
 
-
 };
+
+int main(){
+
+    // creating an object for the linkedlist class
+    LinkedList *list = new LinkedList();
+    std::cout<<"What value do you want to give to the node? \n";
+    int val;
+    std::cin>>val;
+    list->CreateNode(val);
+}
