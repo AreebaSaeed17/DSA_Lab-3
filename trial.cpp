@@ -18,7 +18,24 @@ class LinkedList{
     // creating the head ptr
     node * head = nullptr;
     
-   
+    void insertNode_3rd_position(){
+
+        int data;
+        std::cout<<"What value node do you wish to create? \n";
+        std::cin>>data;
+
+        node *newNode = new node(data);  
+
+        node *temp = head;
+        for(int i=1; i<3; i++){
+            temp = temp->next;
+        }
+
+        // standing at position 2
+        newNode->next = temp->next;
+        temp->next = newNode;
+
+    }
 
 
     // function to insert a node at a specific position
