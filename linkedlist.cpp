@@ -37,43 +37,18 @@ class LinkedList{
         }
     }
 
-
-    // function to insert a node at a specific position
-    void insertNode(){
-
-        int data, pos;
-        int num_of_nodes = checkNumberofNodes();
-        std::cout<<"\nCurrently there are " << num_of_nodes <<" nodes in the linkedlist.\n";
-        std::cout<<"\nAt what position do you wish to add a new node?\nKeep the position within range for proper creation.\n";
-        std::cin>>pos;
-
-        std::cout<<"What value node do you wish to create? \n";
-        std::cin>>data;
-
-        node *newNode = new node(data);     // creating node with value user gave
-       
-        node * temp_ptr = head;
-        
-        // run a loop and stop at the node behind the position we have to insert
-        for (int i = 1; i<(pos-1); i++){
-            temp_ptr = temp_ptr ->next;             // keep moving the ptr forward
-        }
-        
-        // Now insert that node we just made
-        // link the node with its next node
-        newNode->next = temp_ptr;
-        temp_ptr = newNode;     // connect the link from behind
-
-        std::cout<<"\nA node has been created with the data: \n";
-        std::cout<<temp_ptr->data;
-    }
-
     // function to add node specifically at 3rd position
     void insertNode_3rd_position(){
+
+        if (checkNumberofNodes() < 2) {
+            std::cout << "There are not enough nodes to insert at position 3.\n";
+            return;
+        }
 
         int data;
         std::cout<<"What value node do you wish to create? \n";
         std::cin>>data;
+
 
         node *newNode = new node(data);  
 
@@ -85,6 +60,9 @@ class LinkedList{
         // standing at position 2
         newNode->next = temp->next;
         temp->next = newNode;
+
+        std::cout<<"\nA node has been created with the data: \n";
+        std::cout<<temp->data;
 
     }
 
@@ -148,7 +126,8 @@ int main(){
     list->InsertNode_atHead(30);
 
     std::cout<<"\nChoose one of the following operations to perform: \n";
-    std::cout<<"1. Insertion of A Node at any position\n";
+  
+    std::cout<<"1. Insertion of A Node at position number 3\n";
     std::cout<<"2. Deletion of A Node\n";
     std::cout<<"3. Check number of nodes\n";
     std::cout<<"4. Display the linkedlist\n";
@@ -161,16 +140,19 @@ int main(){
 
     do {
 
-         switch (choice){
+        switch (choice){
+    
         case 1:
-        list->insertNode();
+        list->insertNode_3rd_position();
         break;
 
         case 2:
         list->DeleteNode();
+        break;
 
         case 3:
         list->checkNumberofNodes();
+        break;
 
         case 4:
         list->DisplayLL();
