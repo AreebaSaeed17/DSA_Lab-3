@@ -1,7 +1,7 @@
 #include<iostream>
 
 class LinkedList{
-
+    
     public:
     // defining struct for node of linkedlist
     // making it public to access these throughout the program
@@ -147,7 +147,7 @@ int main(){
     int choice;
     do {
     
-    std::cout<<"\nChoose one of the following operations to perform: \n";
+    std::cout<<"\n\nChoose one of the following operations to perform: \n";
   
     std::cout<<"1. Insertion of A Node at position number 3\n";
     std::cout<<"2. Deletion of A Node\n";
